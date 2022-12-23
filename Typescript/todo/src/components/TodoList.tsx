@@ -3,15 +3,17 @@ import { TodoType } from './TodoApp'
 import TodoItems from './TodoItems'
 
 type TodoListProps={
-    data:TodoType[]
+    data:TodoType[],
+    handleDelete:(id:number)=>void
 }
-const TodoList = ({data}:TodoListProps) => {
+const TodoList = (props:TodoListProps) => {
   return (
     <div>
         {
-            data.map((todo)=>(
-
-                <TodoItems todo={todo}/>
+            props.data.map((todo)=>(
+                // <div key={todo.id} onClick={()=>props.handleDelete(1671790376386)}>
+                <TodoItems key={todo.id} todo={todo} handleDelete={props.handleDelete}/>
+                
             ))
         }
         </div>
